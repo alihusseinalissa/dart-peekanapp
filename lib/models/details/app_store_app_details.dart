@@ -10,16 +10,16 @@ class AppStoreAppDetails {
   final String appId;
 
   /// The name of the app.
-  final String title;
+  final String? title;
 
   /// The App Store URL of the app.
-  final String url;
+  final String? url;
 
   /// The description of the app.
-  final String description;
+  final String? description;
 
   /// A URL to the icon of the app. The highest quality image is used for this.
-  final String icon;
+  final String? icon;
 
   /// A list of genres the app belongs to.
   final List<String> genres;
@@ -28,67 +28,67 @@ class AppStoreAppDetails {
   final List<String> genreIds;
 
   /// The primary genre of the app.
-  final String primaryGenre;
+  final String? primaryGenre;
 
   /// The ID of the primary genre of the app.
-  final num primaryGenreId;
+  final num? primaryGenreId;
 
   /// The content rating of the app.
-  final String contentRating;
+  final String? contentRating;
 
   /// A list of languages that the app supports.
   final List<String> languages;
 
   /// The size of the app in bytes.
-  final String size;
+  final String? size;
 
   /// The minimum required OS version.
-  final String requiredOsVersion;
+  final String? requiredOsVersion;
 
   /// The release date of the app.
-  final DateTime released;
+  final DateTime? released;
 
   /// The date of the last update of the app.
-  final DateTime updated;
+  final DateTime? updated;
 
   /// The app's release notes.
-  final String releaseNotes;
+  final String? releaseNotes;
 
   /// The app's current version.
   final String version;
 
   /// The price of the app. 0 if it's free.
-  final num price;
+  final num? price;
 
   /// The currency of the app's price.
-  final String currency;
+  final String? currency;
 
   /// Whether the app is free to download.
-  final bool free;
+  final bool? free;
 
   /// The numeric identifier of the app's developer.
-  final num developerId;
+  final num? developerId;
 
   /// The name of the app's developer.
-  final String developer;
+  final String? developer;
 
   /// The developer's URL on the Apple App Store.
-  final String developerUrl;
+  final String? developerUrl;
 
   /// The URL of the developer's website.
-  final String developerWebsite;
+  final String? developerWebsite;
 
   /// The app's score.
-  final num score;
+  final num? score;
 
   /// The number of reviews the app has received.
-  final num reviews;
+  final num? reviews;
 
   /// The score of the app's latest version.
-  final num currentVersionScore;
+  final num? currentVersionScore;
 
   /// The number of reviews the app's current version has received.
-  final num currentVersionReviews;
+  final num? currentVersionReviews;
 
   /// A list of screenshot URLs.
   final List<String> screenshots;
@@ -142,33 +142,37 @@ class AppStoreAppDetails {
     return AppStoreAppDetails(
       id: json['id'] as num,
       appId: json['appId'] as String,
-      title: json['title'] as String,
-      url: json['url'] as String,
-      description: json['description'] as String,
-      icon: json['icon'] as String,
+      title: json['title'] as String?,
+      url: json['url'] as String?,
+      description: json['description'] as String?,
+      icon: json['icon'] as String?,
       genres: (json['genres'] as List<dynamic>).cast<String>(),
       genreIds: (json['genreIds'] as List<dynamic>).cast<String>(),
-      primaryGenre: json['primaryGenre'] as String,
-      primaryGenreId: json['primaryGenreId'] as num,
-      contentRating: json['contentRating'] as String,
+      primaryGenre: json['primaryGenre'] as String?,
+      primaryGenreId: json['primaryGenreId'] as num?,
+      contentRating: json['contentRating'] as String?,
       languages: (json['languages'] as List<dynamic>).cast<String>(),
-      size: json['size'] as String,
-      requiredOsVersion: json['requiredOsVersion'] as String,
-      released: DateTime.parse(json['released'] as String),
-      updated: DateTime.parse(json['updated'] as String),
-      releaseNotes: json['releaseNotes'] as String,
+      size: json['size'] as String?,
+      requiredOsVersion: json['requiredOsVersion'] as String?,
+      released: json['released'] != null
+          ? DateTime.parse(json['released'] as String)
+          : null,
+      updated: json['updated'] != null
+          ? DateTime.parse(json['updated'] as String)
+          : null,
+      releaseNotes: json['releaseNotes'] as String?,
       version: json['version'] as String,
-      price: json['price'] as num,
-      currency: json['currency'] as String,
-      free: json['free'] as bool,
-      developerId: json['developerId'] as num,
-      developer: json['developer'] as String,
-      developerUrl: json['developerUrl'] as String,
-      developerWebsite: json['developerWebsite'] as String,
-      score: json['score'] as num,
-      reviews: json['reviews'] as num,
-      currentVersionScore: json['currentVersionScore'] as num,
-      currentVersionReviews: json['currentVersionReviews'] as num,
+      price: json['price'] as num?,
+      currency: json['currency'] as String?,
+      free: json['free'] as bool?,
+      developerId: json['developerId'] as num?,
+      developer: json['developer'] as String?,
+      developerUrl: json['developerUrl'] as String?,
+      developerWebsite: json['developerWebsite'] as String?,
+      score: json['score'] as num?,
+      reviews: json['reviews'] as num?,
+      currentVersionScore: json['currentVersionScore'] as num?,
+      currentVersionReviews: json['currentVersionReviews'] as num?,
       screenshots: (json['screenshots'] as List<dynamic>).cast<String>(),
       ipadScreenshots:
           (json['ipadScreenshots'] as List<dynamic>).cast<String>(),
@@ -195,8 +199,8 @@ class AppStoreAppDetails {
       'languages': languages,
       'size': size,
       'requiredOsVersion': requiredOsVersion,
-      'released': released.toIso8601String(),
-      'updated': updated.toIso8601String(),
+      'released': released?.toIso8601String(),
+      'updated': updated?.toIso8601String(),
       'releaseNotes': releaseNotes,
       'version': version,
       'price': price,

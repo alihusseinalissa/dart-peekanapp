@@ -10,19 +10,19 @@ class PlayStoreAppDetails {
   final String appId;
 
   /// The name of the app.
-  final String title;
+  final String? title;
 
   /// The short description/summary of the app.
-  final String summary;
+  final String? summary;
 
   /// The description of the app.
-  final String description;
+  final String? description;
 
   /// The description of the app in HTML format.
-  final String descriptionHTML;
+  final String? descriptionHTML;
 
   /// The name of the app's developer.
-  final String developer;
+  final String? developer;
 
   /// The ID of the app's developer.
   final String? developerId;
@@ -40,34 +40,34 @@ class PlayStoreAppDetails {
   final String? developerAddress;
 
   /// The icon of the app.
-  final String icon;
+  final String? icon;
 
   /// The score of the app.
-  final num score;
+  final num? score;
 
   /// The score of the app in string format.
-  final String scoreText;
+  final String? scoreText;
 
   /// The price of the app. 0 if free.
-  final num price;
+  final num? price;
 
   /// The price of the app in string format.
-  final String priceText;
+  final String? priceText;
 
   /// The currency of the app's price.
-  final String currency;
+  final String? currency;
 
   /// Whether the app is free to download.
-  final bool free;
+  final bool? free;
 
   /// The number of installs the app has received (approximation).
-  final String installs;
+  final String? installs;
 
   /// The minimum number of installs from the [installs] approximation.
-  final num minInstalls;
+  final num? minInstalls;
 
   /// The maximum number of installs from the [installs] approximation.
-  final num maxInstalls;
+  final num? maxInstalls;
 
   /// The number of ratings the app has received.
   final num? ratings;
@@ -79,10 +79,10 @@ class PlayStoreAppDetails {
   final Map<String, num>? histogram;
 
   /// Whether the app is available to download.
-  final bool available;
+  final bool? available;
 
   /// Whether the app offers in-app purchases.
-  final bool offersIAP;
+  final bool? offersIAP;
 
   /// The range of the in-app purchases contained within the app.
   final String? IAPRange;
@@ -91,17 +91,17 @@ class PlayStoreAppDetails {
   final String? size;
 
   /// The minimum version of Android that is required to install the app.
-  final String androidVersion;
+  final String? androidVersion;
 
   /// The minimum version of Android that is required to install the app in
   /// string format.
-  final String androidVersionText;
+  final String? androidVersionText;
 
   /// The genre of the app.
-  final String genre;
+  final String? genre;
 
   /// The genre ID of the app.
-  final String genreId;
+  final String? genreId;
 
   /// The family genre of the app.
   final String? familyGenre;
@@ -122,19 +122,19 @@ class PlayStoreAppDetails {
   final String? videoImage;
 
   /// The app's content rating.
-  final String contentRating;
+  final String? contentRating;
 
   /// The description of the app's content rating.
   final String? contentRatingDescription;
 
   /// Whether the app contains ads.
-  final bool adSupported;
+  final bool? adSupported;
 
   /// The app's release date in string format (e.g. Mar 14, 2022).
-  final String released;
+  final String? released;
 
   /// A UNIX timestamp of the app's last update date.
-  final num updated;
+  final num? updated;
 
   /// The last version of the app.
   final String version;
@@ -203,50 +203,50 @@ class PlayStoreAppDetails {
     return PlayStoreAppDetails(
       url: json['url'] as String,
       appId: json['appId'] as String,
-      title: json['title'] as String,
-      summary: json['summary'] as String,
-      description: json['description'] as String,
-      descriptionHTML: json['descriptionHTML'] as String,
-      developer: json['developer'] as String,
+      title: json['title'] as String?,
+      summary: json['summary'] as String?,
+      description: json['description'] as String?,
+      descriptionHTML: json['descriptionHTML'] as String?,
+      developer: json['developer'] as String?,
       developerId: json['developerId'] as String?,
       developerInternalId: json['developerInternalId'] as String?,
       developerEmail: json['developerEmail'] as String?,
       developerWebsite: json['developerWebsite'] as String?,
       developerAddress: json['developerAddress'] as String?,
-      icon: json['icon'] as String,
-      score: json['score'] as num,
-      scoreText: json['scoreText'] as String,
-      price: json['price'] as num,
-      priceText: json['priceText'] as String,
-      currency: json['currency'] as String,
-      free: json['free'] as bool,
-      installs: json['installs'] as String,
-      minInstalls: json['minInstalls'] as num,
-      maxInstalls: json['maxInstalls'] as num,
+      icon: json['icon'] as String?,
+      score: json['score'] as num?,
+      scoreText: json['scoreText'] as String?,
+      price: json['price'] as num?,
+      priceText: json['priceText'] as String?,
+      currency: json['currency'] as String?,
+      free: json['free'] as bool?,
+      installs: json['installs'] as String?,
+      minInstalls: json['minInstalls'] as num?,
+      maxInstalls: json['maxInstalls'] as num?,
       ratings: json['ratings'] as num?,
       reviews: json['reviews'] as num?,
       histogram: _deserializeHistogram(json['histogram']),
-      available: json['available'] as bool,
-      offersIAP: json['offersIAP'] as bool,
+      available: json['available'] as bool?,
+      offersIAP: json['offersIAP'] as bool?,
       IAPRange: json['IAPRange'] as String?,
       size: json['size'] as String?,
-      androidVersion: json['androidVersion'] as String,
-      androidVersionText: json['androidVersionText'] as String,
-      genre: json['genre'] as String,
-      genreId: json['genreId'] as String,
+      androidVersion: json['androidVersion'] as String?,
+      androidVersionText: json['androidVersionText'] as String?,
+      genre: json['genre'] as String?,
+      genreId: json['genreId'] as String?,
       familyGenre: json['familyGenre'] as String?,
       familyGenreId: json['familyGenreId'] as String?,
-      headerImage: json['headerImage'] as String,
+      headerImage: json['headerImage'] as String?,
       screenshots: (json['screenshots'] as List<dynamic>?)?.cast<String>(),
       video: json['video'] as String?,
       videoImage: json['videoImage'] as String?,
-      contentRating: json['contentRating'] as String,
+      contentRating: json['contentRating'] as String?,
       contentRatingDescription: json['contentRatingDescription'] as String?,
-      adSupported: json['adSupported'] as bool,
-      released: json['released'] as String,
-      updated: json['updated'] as num,
+      adSupported: json['adSupported'] as bool?,
+      released: json['released'] as String?,
+      updated: json['updated'] as num?,
       version: json['version'] as String,
-      recentChanges: json['recentChanges'] as String,
+      recentChanges: json['recentChanges'] as String?,
       comments: (json['comments'] as List<dynamic>?)?.cast<String>(),
       privacyPolicy: json['privacyPolicy'] as String?,
     );
